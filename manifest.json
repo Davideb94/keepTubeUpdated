@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "keepTube",
+  "description": "Keep youtube playing, always.",
+  "version": "1.0",
+  "homepage_url": "http://lenotta.com",
+  "browser_action": {
+    "default_icon": {
+      "19": "assets/logoCutted.png",
+      "38": "assets/logoCutted.png"
+    }
+  },
+  "icons": { 
+    "16": "assets/logoCutted.png",
+    "48": "assets/logoCutted.png",
+    "128": "assets/logoCutted.png" 
+  },
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/",
+    "tabs"
+  ],
+  "content_scripts": [ {
+    "css": ["youtube/style.css"],
+    "js": [ 
+      "youtube/jquery-2.2.0.min.js", 
+      "youtube/lib.js" ],
+    "matches": [
+      "http://youtube.com/*",
+      "https://youtube.com/*", 
+      "http://www.youtube.com/*", 
+      "https://www.youtube.com/*"
+      ]
+
+  }],
+  "background": {
+    "scripts": ["main.js"]
+  },
+  "web_accessible_resources": ["youtube/favicon.ico"]
+}
